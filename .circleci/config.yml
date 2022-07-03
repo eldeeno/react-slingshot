@@ -2,18 +2,22 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node:18.4.0
     steps:
+      - checkout
+      - run: node --version
       - run: "npm run test"
   test:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node:18.4.0
     steps:
+      - checkout
       - run: "npm run lint"
   analyze:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node:18.4.0
     steps:
+      - checkout
       - run: "npm audit"
 workflows:
   my-workflow:
