@@ -6,8 +6,6 @@ jobs:
     steps:
       - checkout
       - run: node --version
-      - run: "npm install jest"
-  
       - run: "npm run test"
   test:
     docker:
